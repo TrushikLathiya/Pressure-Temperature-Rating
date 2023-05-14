@@ -1,0 +1,133 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Pressure-Temperature Ratings</title>
+    <link rel="stylesheet" type="text/css" href="{% static '/css/styles.css' %}">
+
+    {% comment %} <link rel="stylesheet" type="text/css" href="/staticfiles/admin/css/styles.css"> {% endcomment %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+
+<body>
+    <section>
+        <div class="title text-center">
+            <h1 class="mb-10">Pressure-Temperature Ratings</h1>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <form method="POST">
+                    <div id="input">
+                    {% csrf_token %}
+                    <label>Design Temperature:</label>
+                    <select id="DT" DT="DT" name="DT" value="{{DT}}" required/>
+                        <option value="-20F to 100F"{% if DT == '-20F to 100F' %}selected{% endif %}>-20F to 100F</option>
+                        <option value="200F" {% if DT == '200F' %}selected{% endif %}>200F</option>
+                        <option value="300F"{% if DT == '300F' %}selected{% endif %}>300F</option>
+                        <option value="400F"{% if DT == '400F' %}selected{% endif %}>400F</option>
+                        <option value="500F"{% if DT == '500F' %}selected{% endif %}>500F</option>
+                        <option value="600F"{% if DT == '600F' %}selected{% endif %}>600F</option>
+                        <option value="700F"{% if DT == '700F' %}selected{% endif %}>700F</option>
+                        <option value="800F"{% if DT == '800F' %}selected{% endif %}>800F</option>
+                        <option value="900F"{% if DT == '900F' %}selected{% endif %}>900F</option>
+                        <option value="1000F"{% if DT == '1000F' %}selected{% endif %}>1000F</option>
+                    </select> 
+                    <br>   
+                    <label>Material of Construction:</label>
+                    <select id="MOC" MOC="MOC" name="MOC" value="{{MOC}}" required/>
+                        <option value="304SS"{% if MOC == '304SS' %}selected{% endif %}>304SS</option>
+                        <option value="304L/316L SS"{% if MOC == '304L/316L SS' %}selected{% endif %}>304L/316L SS</option>
+                       <option value="310SS"{% if MOC == '310SS' %}selected{% endif %}>310SS</option>
+                        <option value="316SS"{% if MOC == '316SS' %}selected{% endif %}>316SS</option>
+                        <option value="321SS"{% if MOC == '321SS' %}selected{% endif %}>321SS</option>
+                        <option value="347SS/348SS"{% if MOC == '347SS/348SS' %}selected{% endif %}>347SS/348SS</option>
+                        <option value="A105 CS"{% if MOC == 'A105 CS' %}selected{% endif %}>A105 CS</option>
+                        <option value="Carp. 20SS"{% if MOC == 'Carp. 20SS' %}selected{% endif %}>Carp. 20SS</option>
+                        <option value="Grade F1 C-½ Mo"{% if MOC == 'Grade F1 C-½ Mo' %}selected{% endif %}>Grade F1 C-½ Mo</option>
+                        <option value="Grade F11 1¼ Cr-½ Mo"{% if MOC == 'Grade F11 1¼ Cr-½ Mo' %}selected{% endif %}>Grade F11 1¼ Cr-½ Mo</option>
+                        <option value="Grade F22 2¼ Cr-1 Mo"{% if MOC == 'Grade F22 2¼ Cr-1 Mo' %}selected{% endif %}>Grade F22 2¼ Cr-1 Mo</option>
+                        <option value="Grade F91 9 Cr-1 Mo-V"{% if MOC == 'Grade F91 9 Cr-1 Mo-V' %}selected{% endif %}>Grade F91 9 Cr-1 Mo-V</option>
+                        <option value="Hast. B2"{% if MOC == 'Hast. B2' %}selected{% endif %}>Hast. B2</option>
+                        <option value="Hast. C & Inconel 625 & Incoloy825"{% if MOC == 'Hast. C & Inconel 625 & Incoloy825' %}selected{% endif %}>Hast. C & Inconel 625 & Incoloy825</option>
+                        <option value="Incoloy 800"{% if MOC == 'Incoloy 800' %}selected{% endif %}>Incoloy 800</option>
+                        <option value="Inconel 600"{% if MOC == 'Inconel 600' %}selected{% endif %}>Inconel 600</option>
+                        <option value="Monel 400 & 405"{% if MOC == 'Monel 400 & 405' %}selected{% endif %}>Monel 400 & 405</option>
+                        <option value="Nickel 200"{% if MOC == 'Nickel 200' %}selected{% endif %}>Nickel 200</option>
+                    </select>
+                    <br>
+                    <button type="submit">Submit</button>
+                    <br>
+                </div>
+                <div class="table-container">   
+                    <table border="1" width="100%">
+                        <tr>
+                            <th rowspan="2">Class</th>
+                            <th colspan="2">Pressure Rating</th>
+                        </tr>
+                        <tr>
+                            <th>psig</th>
+                            <th>kPa</th>
+                        </tr>
+                        <tr>
+                            <td>150#</td>
+                            <td>{{r150}}</td> 
+                            <td>{{rpa150}}</td> 
+                        </tr>
+                        <tr>
+                            <td>300#</td>
+                            <td>{{r300}}</td> 
+                            <td>{{rpa300}}</td> 
+                        </tr>
+                        <tr>
+                            <td>600#</td>
+                            <td>{{r600}}</td> 
+                            <td>{{rpa600}}</td> 
+                        </tr>
+                        <tr>
+                            <td>900#</td>
+                            <td>{{r900}}</td> 
+                            <td>{{rpa900}}</td> 
+                        </tr>
+                        <tr>
+                            <td>1500#</td>
+                            <td>{{r1500}}</td> 
+                            <td>{{rpa1500}}</td> 
+                        </tr>
+                        <tr>
+                            <td>2500#</td>
+                            <td>{{r2500}}</td> 
+                            <td>{{rpa2500}}</td> 
+                        </tr> 
+                    </table>
+                </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    <div class="container">
+    <info>
+        <b>What does flange pressure rating mean?</b> <br>
+        The flange rating denotes the maximum pressure a flange can sustain at high temperatures, and it rises proportionally with the flange's capacity to tolerate higher pressures and temperatures. Selecting the appropriate flange rating is imperative for ensuring optimal performance and safety under specified usage and operating conditions. <br>
+        <br><b>How to choose the suitable rating for application? </b><br>
+        I. Determine the maximum working temperature of the system and select it from dropdown options.<br>
+        II. Select the appropriate material grade that corresponds to your system's requirements.<br>
+        III. Output result will indicate the maximum pressure that each flange rating (Class) can withstand !!
+    </info>
+    </div>
+    <footer>
+        {% comment %} <div id="output"> {% endcomment %}
+        <div>
+        <a href="mailto:trushiklathiya98@gmail.com"> 
+                <i class="fas fa-envelope"></i>  trushiklathiya98@gmail.com</a><br> </div>
+                <div>Developed by Trushikkumar Lathiya<br> </div>
+        <div>
+        <a href="https://www.linkedin.com/in/trushikkumar-lathiya/"> 
+            <i class="fab fa-linkedin"></i> linkedin.com/trushik-lathiya</a>
+        </div>
+      </footer>
+</body>
+</html>
+
+

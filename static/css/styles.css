@@ -1,0 +1,214 @@
+@font-face {
+  font-family: airbnbregular;
+  src: url('/static/font/airbnb/AirbnbCerealBook.ttf');
+}
+
+@font-face {
+  font-family: airbnbbold;
+  src: url('/static/font/airbnb/AirbnbCerealBold.ttf');
+}
+
+@font-face {
+  font-family: airbnbextrabold;
+  src: url('/static/font/airbnb/AirbnbCerealExtraBold.ttf');
+}
+
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: airbnbregular, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+}
+
+
+.title {
+  text-align: center;
+  font-family: airbnbextrabold, sans-serif;
+  font-size: 1.7em;
+  padding: 30px;
+}
+
+
+form {
+  margin: 20px 0;
+
+}
+
+@media (max-width: 768px) {
+  form, #input, footer, container, info {
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+
+  #input {
+    width: 100%;
+  }
+
+  .title {
+    font-size: 1.4em;
+    padding: 15px;
+  }
+
+  /* footer #output {
+    justify-content: center;
+  }
+
+  footer #output > * {
+    margin: 0 5px;
+  } */
+
+}
+
+#input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+label {
+  display: inline-block;
+  margin-left: 10px;
+  font-family: airbnbbold, sans-serif;
+}
+
+select {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 260px;
+  font-family: airbnbregular, sans-serif;
+  font-size: 14px;
+}
+
+
+button[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 7px 30px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  cursor: pointer;
+  font-family: airbnbregular, sans-serif;
+  margin-left: 10px;
+  margin-bottom: 2px;
+  font-size: 14px;
+}
+
+button:hover {
+  background-color: #3e8e41;
+}
+
+table {
+  margin: auto;
+  margin-top: 20px;
+  border-collapse: collapse;
+  width: 60%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  overflow: hidden;
+  border: 1px solid #ccc;
+  outline: 1px solid #ccc;
+  border-radius: 12px;
+
+}
+
+th,
+td {
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #ccc;
+}
+
+
+th {
+  background-color: #f2f2f2;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 50px;
+  margin-bottom: 50px;
+  margin-top: 50px;
+  margin-left:0%;
+  width: 100%;
+  
+}
+
+info {
+  font-family: airbnbregular, sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  text-align: left;
+  width: 60%;
+  padding: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 12px;
+  background-color: #f2f2f2; 
+
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #f2f2f2;
+  padding: 20px;
+  font-family: airbnbregular, sans-serif;
+  font-size: 11px;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+footer a {
+  color: #333;
+  text-decoration: none;
+}
+
+
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+
+
+footer i.fa {
+  font-size: 24px;
+  margin-right: 15px;
+}
+
+
+
+footer i.fas.fa-envelope {
+  color: #2196f3;
+}
+
+
+
+footer i.fab.fa-linkedin {
+  color: #0077b5;
+}
+
+
+
+footer a:hover {
+  text-decoration: underline;
+}
